@@ -19,7 +19,6 @@ const { sort, genres } = req.query;
     
 let results = playstore
 
-
     if(sort) {
         if (!['rating', 'app'].includes(sort)) {
             return res
@@ -65,11 +64,9 @@ let results = playstore
                 return appGenre1 === genres.toLowerCase();
             })
     }
-    return res.send(results);
+    return res.json(results);
 });
 
 
+module.exports = app;
 
-app.listen(8000, () => {
-    console.log('Server started on Port 8000');
-});
